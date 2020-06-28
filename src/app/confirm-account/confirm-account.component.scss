@@ -1,0 +1,24 @@
+@import '../login/login.component.scss';
+
+.confirm-wrapper .signin {
+  min-height: 550px;
+
+  .auth-pop {
+    height: 150px;
+  }
+}
+
+.verify-container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 25px;
+  color: $white;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.verify-link a {
+  color: #df8a46;
+}

@@ -1,6 +1,42 @@
+# Angular9
+## Get started
 # FrontApi
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.0.
+### Clone the repo
+
+```shell
+git clone https://gitlab.com/grepruby/projects/client/urgent-fury/front-api.git
+cd front-api
+```
+
+### Install npm packages
+
+Install the `npm` packages described in the `package.json` and verify that it works:
+
+```shell
+npm install
+npm start
+```
+
+The `npm start` command builds (compiles TypeScript), and watches for changes to the source files, and runs `server` on port `4200`.
+
+Shut it down manually with `Ctrl-C`.
+
+#### Make sure to install angular v9 as @angular/cli by
+
+```shell
+npm install -g @angular/cli@9.0.0
+```
+
+#### npm scripts
+
+These are the most useful commands defined in `package.json`:
+
+* `npm start` - runs the TypeScript compiler, asset copier, and a server at the same time, all three in "watch mode".
+* `npm run build` - runs the TypeScript compiler and asset copier once.
+* `npm run build:prod` - runs the TypeScript compiler and asset copier in "production mode"; when changes occur to source files, they will be recompiled or copied into `dist/`.
+* `npm run build:staging` - runs the TypeScript compiler and asset copier in "staging mode"; when changes occur to source files, they will be recompiled or copied into `dist/`.
 
 ## Development server
 
@@ -13,14 +49,6 @@ Run `ng generate component component-name` to generate a new component. You can 
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
 ## Further help
 

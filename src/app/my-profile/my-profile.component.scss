@@ -1,0 +1,347 @@
+@import '../shared/scss/shared.scss';
+
+.profile-section {
+  display: inline-block;
+  padding-bottom: 22rem;
+  padding-top: 10px;
+  width: 100%;
+}
+
+.profile-left {
+  background: $white;
+  border-radius: 15px;
+  float: left;
+  padding: 15px 25px;
+  padding-top: 25px;
+  width: 300px;
+}
+
+.profile-left ul li {
+  background: $light-grey;
+  border-radius: 25px;
+  list-style-type: none;
+  margin-bottom: 10px;
+  padding: 7px 0;
+  text-align: center;
+
+  a {
+    color: $night-rider;
+  }
+
+  &.active {
+    background: $monte-carlo;
+  }
+}
+
+.profile-middle {
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: calc(100% - 620px);
+}
+
+.user-image {
+  border-radius: 100%;
+  height: 90px;
+  position: relative;
+  width: 90px;
+
+  img {
+    border-radius: 100%;
+    border: 2px solid $turquoise-blue;
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+  }
+}
+
+.profile-plus {
+  background: $turquoise-blue;
+  border-radius: 100%;
+  color: $white;
+  height: 15px;
+  left: 0;
+  line-height: 18px;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 15px;
+}
+
+.name {
+  float: left;
+  padding-left: 20px;
+  padding-top: 23px;
+}
+
+.red-color {
+  color: $red;
+}
+
+.name p:first-child {
+  font-weight: bold;
+}
+
+.profile-pic {
+  background: $white;
+  border-radius: 55px;
+  display: inline-block;
+  padding-right: 30px;
+  width: 100%;
+}
+
+.profile-click a {
+  background: $monte-carlo;
+  border-radius: 25px;
+  color: $night-rider;
+  display: inline-block;
+  margin-top: 25px;
+  padding: 5px 15px;
+}
+
+.profile-click .edit-btn a, .profile-click .save-btns a {
+  margin-top: 8px;
+}
+
+.profile-click .save-btns a {
+  margin-left: 5px;
+}
+
+.profile-click .pass-btn a {
+  margin-top: 0px;
+}
+
+.profile-click a.cancel-btn {
+  margin-left: 10px;
+}
+
+.styled-select {
+  box-sizing: border-box;
+  border-radius: 3px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+
+  select {
+    width: 100%;
+  }
+}
+
+@-moz-document url-prefix() {
+  .styled-select select {
+    width: 110%;
+  }
+}
+
+_:-o-prefocus,
+.selector {
+  .styled-select {
+    background: none;
+  }
+}
+
+select:focus {
+  outline: none;
+}
+
+.styled-select {
+  select {
+    -webkit-appearance: none;
+    background: $white;
+    border: none;
+    border-radius: 25px;
+    font-size: 14px;
+    height: 34px;
+    padding: 5px 0 5px 12px;
+  }
+
+  .fa-sort-desc {
+    color: #333;
+    font-size: 24px;
+    position: absolute;
+    right: 15px;
+    top: -1px;
+  }
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+form.password-form input, form.password-form select {
+  background: #ececec;
+  border: 0;
+  box-shadow: none;
+  border-radius: 25px;
+}
+
+form.password-form input.date-input {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+form.password-form span.input-group-addon {
+  border: 0;
+  border-bottom-right-radius: 25px;
+  border-top-right-radius: 25px;
+}
+
+.detail-block {
+  background: $white;
+  border-radius: 10px;
+  display: inline-block;
+  width: 100%;
+}
+
+a {
+  &.deposit-btn {
+    background: $green;
+    border-radius: 25px;
+    color: $white;
+    padding: 5px 45px;
+  }
+
+  &.zencoin-btn {
+    background: $light-grey;
+    border-radius: 25px;
+    color: $night-rider;
+    font-size: 14px;
+    padding: 5px 45px;
+
+    &.pass-btn {
+      padding: 5px 25px;
+    }
+  }
+}
+
+.info {
+  border-bottom: 1px solid $quartz;
+  display: inline-block;
+  padding: 15px 40px;
+  width: 100%;
+
+  &:last-child {
+    border-bottom: 0;
+  }
+}
+
+.blue-color {
+  color: $navy-blue;
+  font-weight: bold;
+}
+
+.account-details h4,
+.personal-info h4 {
+  font-weight: bold;
+  margin: 15px 0;
+}
+
+@media (min-width: 992px) and (max-width: 1100px) {
+
+  .profile-left,
+  .profile-right {
+    width: 250px;
+  }
+
+  .profile-middle {
+    width: calc(100% - 520px);
+  }
+
+  a.zencoin-btn {
+    padding: 5px 10px;
+  }
+}
+
+@media(max-width: 767px) {
+
+  .profile-left {
+    width: 100%;
+  }
+
+  .profile-pic {
+    background: transparent;
+    padding-right: 0;
+  }
+
+  .profile-click {
+    display: inline-block;
+    margin-top: 10px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .profile-section {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .profile-middle {
+    margin: 15px 0;
+    width: 100%;
+  }
+
+  .profile-click a {
+    margin-bottom: 10px;
+    margin-top: 0;
+  }
+
+  .info {
+    padding: 15px 8px;
+  }
+
+  a.deposit-btn,
+  a.zencoin-btn {
+    padding: 5px 15px;
+    margin-right: 5px;
+  }
+  ul.filter .styled-select {
+    width: 145px;
+    margin-bottom: 10px;
+  }
+  ul.filter .styled-select select {
+    width: 100%; 
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+  .profile-left {
+    width: 220px;
+  }
+
+  .profile-middle {
+    width: calc(100% - 460px);
+  }
+
+  .profile-click a {
+    margin-bottom: 15px;
+    margin-top: 0;
+  }
+
+  .info {
+    padding: 15px 5px;
+  }
+
+  a.deposit-btn,
+  a.zencoin-btn {
+    padding: 5px 15px;
+  }
+
+  a.zencoin-btn.pass-btn {
+    display: inline-block;
+    margin-top: 10px;
+  }
+  ul.filter .styled-select {
+    width: 145px;
+    margin-bottom: 10px;
+  }
+  ul.filter .styled-select select {
+    width: 100%; 
+  }
+  li.date-input input {
+    font-size: 13px !important;
+  }
+  ul.filter li.reset-btn button {
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,46 @@
+<div class="how-to">
+  <div class="middle-content">
+    <h2>ABOUT US</h2>
+
+    <p>Our goal is to provide Recreational
+      Fantasy Sports contests. By recreational we mean; easy to play, fun to participate, not in the least bit
+      intimidating, and extremely shark proof. We plan to offer a mix of house and player
+      banked fantasy sports games in a variety of new and vintage style.
+    </p>
+    <h3>
+      TO CONTACT US:</h3>
+    <p>EMAIL: SUPPORT@URGENTFURY.COM </p>
+    <p>OR USE THE CONTACT FORM BELOW</p>
+
+    <form *ngIf="contactForm && !formDetailsSent" class="auth-form" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+      <div class="form-contact-us">
+        <div class="contact-form-bingo">
+          <p> Full Name </p>
+          <input type="text" placeholder="Name" formControlName="name" />
+        </div>
+        <div class="contact-form-bingo">
+          <p>Email*</p>
+          <input type="email" placeholder="Email" formControlName="email" />
+          <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+            <div *ngIf="f['email'].errors.required || f['email'].errors.pattern">Please enter a valid email address
+            </div>
+          </div>
+        </div>
+        <div class="contact-form-bingo">
+          <p>Message</p>
+          <textarea placeholder="Message" formControlName="message"></textarea>
+          <div *ngIf="submitted && f['message'].errors" class="invalid-feedback">
+            <div *ngIf="f['message'].errors.required">Message is required</div>
+          </div>
+        </div>
+        <div class="contact-form-bingo">
+          <button>Submit</button>
+        </div>
+      </div>
+    </form>
+    <div *ngIf="formDetailsSent" class="thankyou-text text-center">
+      <i class="fa fa-check-circle fa-5x" aria-hidden="true"></i>
+      <h2>Thank you for your inquiry! We will get back to you within 48 hours.</h2>
+    </div>
+  </div>
+</div>

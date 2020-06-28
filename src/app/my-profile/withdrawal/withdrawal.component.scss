@@ -1,0 +1,183 @@
+@import '../../shared/scss/variables';
+@import '../my-profile.component.scss';
+
+.withdrawal-block {
+  background: $white;
+  border-radius: 15px;
+  display: inline-block;
+  padding: 20px;
+  width: 100%;
+
+  input,
+  select {
+    background: $light-grey;
+    border: 0;
+    border-radius: 25px;
+    box-shadow: none;
+    margin-bottom: 15px;
+  }
+
+  select {
+    height: 40px;
+    border: 1px solid #a3a3a3;
+    padding-left: 15px;
+    font-size: 15px;
+    background-color: inherit;
+    width: 100%;
+  }
+
+  h4 {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 12px;
+  }
+}
+
+.continue-btn {
+  margin: 20px 0;
+
+  button {
+    background: $green;
+    border-radius: 25px;
+    color: $white;
+    padding: 4px 30px;
+  }
+}
+
+.withdrawal-amount {
+  .green-color {
+    font-weight: bold;
+  }
+
+  padding-top: 50px;
+}
+
+.verify-block {
+  background: $gainsboro;
+  border-radius: 20px;
+  padding: 15px 30px;
+
+  p a {
+    text-decoration: underline;
+    color: $neon-blue;
+  }
+}
+
+.withdraw-faq {
+  h4 {
+    font-weight: bold;
+    margin: 20px 0;
+  }
+
+  padding-left: 30px;
+
+  .panel {
+    background: transparent;
+  }
+}
+
+/* faq css */
+
+#accordion {
+  .panel {
+    border-radius: 0;
+    border: 0;
+    box-shadow: none;
+    margin-top: 0;
+  }
+
+  a {
+    color: $dim-gray;
+    display: block;
+    font-weight: normal;
+    padding: 10px 15px;
+    padding-left: 0;
+    text-decoration: none;
+    text-align: left;
+  }
+}
+
+.withdraw-faq h4.panel-title {
+  margin: 0;
+}
+
+.panel-group .panel-heading+.panel-collapse> {
+
+  .list-group,
+  .panel-body {
+    border-top: 0 !important;
+  }
+}
+
+#accordion .panel-heading {
+  a {
+    &.collapsed {
+
+      &:hover,
+      &:focus {
+        background-color: transparent;
+        color: $dim-gray;
+        text-align: left;
+        transition: all 0.2s ease-in;
+      }
+
+      &:hover::before,
+      &:focus::before {
+        color: $white;
+      }
+    }
+
+    &:not(.collapsed) {
+      background-color: transparent;
+      color: $dim-gray;
+      font-weight: normal;
+      text-align: left;
+      transition: all 0.2s ease-in;
+    }
+  }
+
+  border-radius: 0;
+  padding: 0;
+  text-align: center;
+
+  .accordion-toggle {
+    &::before {
+      content: '\f0d8';
+      color: $silver;
+      float: left;
+      font-family: 'FontAwesome';
+      font-weight: lighter;
+      margin-right: 10px;
+      transform: rotate(0deg);
+      transition: all 0.2s ease-in;
+    }
+
+    &.collapsed::before {
+      color: $silver;
+      transition: all 0.2s ease-in;
+    }
+  }
+}
+
+/* Add Indicator fontawesome icon to the left */
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  body .with.text-right {
+    padding-top: 20px;
+    text-align: left;
+  }
+}
+
+@media (max-width: 767px) {
+  body .withdrawal-amount.text-right {
+    padding-top: 20px;
+    text-align: left;
+  }
+
+  .verify-block {
+    margin-top: 10px;
+  }
+}

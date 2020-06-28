@@ -1,0 +1,133 @@
+@import '../../shared/scss/variables';
+@import '../my-profile.component.scss';
+
+.friend-head {
+  h1 {
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+    margin: 30px 0;
+  }
+}
+.link-block {
+  background: #fff;
+  border-radius: 15px;
+  padding: 20px 0;
+  text-align: center;
+  display: inline-block;
+  width: 100%;
+  h2 {
+    font-weight: bold;
+    color: #333;
+  }
+}
+.copy-btn {
+  margin: 20px auto;
+  width: 50%;
+  display: inline-block;
+
+  p {
+    padding: 10px;
+    font-size: 15px;
+    border: 0;
+    float: left;
+    width: 75%;
+    background: #ececec;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    padding-left: 20px;
+    padding-top: 11px;
+    color: #333;
+  }
+  button {
+    float: left;
+    width: 25%;
+    padding: 10px;
+    background: #77bb41;
+    color: #fff;
+    font-size: 17px;
+    border: 0;
+    border-left: none;
+    cursor: pointer;
+    border-radius: 25px;
+    margin-left: -18px;
+  }
+}
+
+.social-links {
+  i {
+    color: #7fd7da;
+    font-size: 25px;
+    margin-right: 10px;
+  }
+}
+.work-block {
+  text-align: center;
+  display: inline-block;
+  width: 100%;
+  padding: 30px 0;
+  h2 {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+  }
+}
+.friend-block {
+  h4 {
+    text-transform: uppercase;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  img {
+    width: 120px;
+    margin-bottom: 15px;
+  }
+}
+@media (max-width: 767px) {
+  .friend-head {
+    h1 {
+      font-size: 20px;
+      margin: 15px 0;
+    }
+  }
+
+  .copy-btn {
+    width: 100%;
+    padding-left: 10px;
+    button {
+      margin-left: -14px;
+      padding: 7px 10px;
+    }
+    p {
+      font-size: 12px;
+    }
+  }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  .friend-head {
+    h1 {
+      font-size: 20px;
+      margin: 15px 0;
+    }
+  }
+
+  .copy-btn {
+    width: 100%;
+    padding-left: 10px;
+
+    button {
+      margin-left: -8px;
+    }
+  }
+}
+@media (min-width: 1025px) and (max-width: 1100px) {
+  .copy-btn {
+    width: 70%;
+  }
+}
+@media (min-width: 1101px) and (max-width: 1250px) {
+  .copy-btn {
+    width: 70%;
+  }
+}

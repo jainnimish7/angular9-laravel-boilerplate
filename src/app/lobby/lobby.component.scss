@@ -1,0 +1,651 @@
+@import "../shared/scss/variables";
+
+.lobby-section {
+  display: inline-block;
+  padding-bottom: 4rem;
+  padding-top: 10px;
+  width: 100%;
+}
+
+.left-block {
+  background: $white;
+  border-radius: 15px;
+  float: left;
+  padding: 15px 25px;
+  padding-top: 25px;
+  width: 300px;
+
+  .sports-box {
+    ul {
+      li {
+        display: inline-block;
+        padding: 5px 20px;
+
+        span {
+          img {
+            margin-right: 5px;
+            position: relative;
+            top: -1px;
+            width: 15px;
+          }
+        }
+      }
+    }
+  }
+
+  ul {
+    li {
+      background: $light-grey;
+      border-radius: 25px;
+      list-style-type: none;
+      margin-bottom: 10px;
+      padding: 7px 0;
+      text-align: center;
+
+      a {
+        color: $night-rider;
+      }
+    }
+
+    li.active {
+      background: $monte-carlo;
+    }
+  }
+}
+
+.create-league {
+  a {
+    background: $light-grey;
+    border-radius: 25px;
+    color: $midnight-blue;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 8px 46px 8px 8px;
+  }
+}
+
+.edit-ball {
+  a {
+    background: $monte-carlo;
+    border-radius: 25px;
+    color: $midnight-blue;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 15px;
+    padding: 8px 20px 8px 8px;
+    margin-bottom: 15px;
+  }
+
+  display: inline-block;
+}
+
+.search-box {
+  label {
+    color: $midnight-blue;
+  }
+
+  input {
+    background: $light-grey;
+    border: 0;
+    border-radius: 25px;
+    box-shadow: none;
+    position: relative;
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  position: relative;
+  margin-bottom: 15px;
+
+  i {
+    color: $black;
+    position: absolute;
+    right: 15px;
+    top: 35px;
+  }
+}
+
+.sports-box {
+  label {
+    color: $midnight-blue;
+  }
+
+  ul {
+    margin-bottom: 15px;
+  }
+
+  label.range {
+    background: $light-grey;
+    border-radius: 25px;
+    font-size: 12px;
+    line-height: 22px;
+    padding: 3px 10px;
+  }
+}
+
+.right-block {
+  border-radius: 15px;
+  float: left;
+  padding: 0;
+  width: 300px;
+}
+
+.range-slider {
+  ::ng-deep .slider-selection {
+    background: $monte-carlo;
+  }
+  ::ng-deep .slider-handle {
+    background: #ececec;
+  }
+  .tooltip.tooltip-main {
+    display: none;
+  }
+
+  .slider-selection {
+    background: $monte-carlo;
+  }
+
+  .slider-handle {
+    background: $light-grey;
+    background-image: none;
+  }
+
+  p {
+    font-size: 12px;
+    text-align: center;
+  }
+}
+
+.lobby-table {
+  height: 500px;
+  overflow-y: scroll;
+}
+
+.reset-btns {
+  padding: 50px 0;
+  text-align: center;
+
+  .btn-default.active {
+    background: $monte-carlo;
+    border: 0;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    color: $midnight-blue;
+    font-weight: bold;
+    float: left;
+    padding: 6px 15px;
+    width: 50%;
+  }
+
+  .btn-default.reset-btn {
+    background: $light-grey;
+    border: 0;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    color: $midnight-blue;
+    font-weight: bold;
+    padding: 6px 30px;
+    width: 50%;
+  }
+}
+
+.middle-block {
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: calc(100% - 620px);
+}
+
+.draft-block {
+  h3 {
+    font-family: "spartan_mbblack";
+    font-weight: bold;
+  }
+
+  p {
+    color: $royal-blue;
+    font-weight: bold;
+  }
+
+  background: $white;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  padding: 12px 30px;
+}
+
+.red-color {
+  color: $red;
+}
+
+.lobby-table {
+  thead {
+    th {
+      border-bottom: 0 !important;
+      color: $midnight-blue;
+      font-weight: normal;
+      font-size: 14px;
+    }
+  }
+
+  td {
+    font-size: 14px;
+    background: $white;
+    border-top: 1px solid $quartz;
+
+    a.draft-btn {
+      background: $light-grey;
+      border-radius: 25px;
+      color: $black;
+      font-weight: bold;
+      padding: 5px 10px;
+    }
+
+    a.draft-btn.active {
+      background: $green;
+      color: $white;
+    }
+  }
+
+  td.prizes {
+    font-weight: bold;
+
+    img {
+      margin-right: 5px;
+      width: 20px;
+    }
+  }
+
+  tr {
+    &:last-child {
+      border-bottom-left-radius: 15px;
+      border-bottom-right-radius: 15px;
+    }
+  }
+}
+
+.blue-color {
+  color: $navy-blue;
+  font-weight: bold;
+}
+
+.range-slider {
+  .slider.slider-horizontal {
+    width: 100%;
+  }
+}
+
+.football-alert {
+  background: $monte-carlo;
+  border-radius: 25px;
+  display: inline-block;
+  padding: 5px;
+  width: 100%;
+}
+
+.football-alert.fantasy-alert {
+  background: $white;
+  margin-bottom: 10px;
+}
+
+.fantasy-alert {
+  .alert-img {
+    background: $light-grey;
+  }
+}
+
+.alert-img {
+  background: $white;
+  border-radius: 100%;
+  float: left;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  width: 40px;
+}
+
+.alert-text {
+  float: left;
+  margin-left: 10px;
+  padding-top: 4px;
+  width: calc(100% - 50px);
+
+  h4 {
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+}
+
+.notifications {
+  ul {
+    li {
+      p {
+        span {
+          font-size: 12px;
+          margin-right: 10px;
+          font-weight: bold;
+          margin-bottom: 8px;
+
+          &:last-child {
+            margin-right: 5px;
+            margin-top: 5px;
+          }
+        }
+      }
+
+      background: $light-grey;
+      border-radius: 10px;
+      display: inline-block;
+      padding: 5px;
+      margin-bottom: 7px;
+      width: 100%;
+    }
+  }
+
+  .alert-img {
+    height: 45px;
+    width: 45px;
+
+    img {
+      height: 100%;
+      object-fit: cover;
+      border-radius: 100%;
+      border: 1px solid $black;
+      width: 100%;
+    }
+  }
+
+  .alert-text {
+    width: calc(100% - 55px);
+    padding-top: 0;
+
+    h4 {
+      font-weight: bold;
+      font-size: 12px;
+    }
+  }
+
+  padding: 5px;
+}
+
+.notify-block {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.panel-section {
+  background: $white;
+  border-radius: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+#confirmPurchaseModal input.form-control {
+  background: #ececec;
+  border-radius: 25px;
+  border: 0;
+  margin: 10px auto;
+  box-shadow: none;
+  width: 80%;
+}
+
+#confirmPurchaseModal a.close-prize img {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  width: 20px;
+}
+
+#confirmPurchaseModal .modal-dialog {
+  margin-top: 100px;
+}
+
+#confirmPurchaseModal .modal-footer {
+  text-align: center;
+}
+
+.modal#confirmPurchaseModal {
+  padding-right: 0;
+}
+
+#confirmPurchaseModal .modal-footer button {
+  background: #ececec;
+  border: 0;
+  padding: 5px 25px;
+  border-radius: 25px;
+  margin-right: 5px;
+}
+
+#confirmPurchaseModal .modal-footer button:last-child {
+  background: #78ccb0;
+}
+
+#confirmPurchaseModal {
+  .modal-content {
+    background: $white;
+    border-radius: 20px;
+    color: #333;
+  }
+
+  h3 {
+    background: $monte-carlo;
+    color: $white;
+    font-size: 24px;
+    padding: 15px 0;
+    text-align: center;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+
+  .confirmation-text {
+    line-height: 30px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1100px) {
+  .left-block {
+    width: 250px;
+  }
+
+  .right-block {
+    width: 250px;
+  }
+
+  .middle-block {
+    width: calc(100% - 570px);
+  }
+
+  .football-alert {
+    display: flex;
+    align-items: center;
+  }
+
+  .notifications {
+    ul {
+      li {
+        p {
+          span {
+            font-size: 10px;
+            margin-right: 5px;
+          }
+        }
+      }
+    }
+  }
+
+  a.zencoin-btn {
+    padding: 5px 10px;
+  }
+
+  header {
+    .navbar-default {
+      .navbar-nav {
+        > li {
+          > a {
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+
+  .plus-sign {
+    margin-left: 5px;
+  }
+}
+
+@media (max-width: 767px) {
+  .left-block {
+    width: 100%;
+  }
+
+  #confirmPurchaseModal input.form-control {
+    width: 100%;
+  }
+
+  .right-block {
+    padding-bottom: 20px;
+    width: 100%;
+  }
+
+  body {
+    .pad-none {
+      padding: 0;
+    }
+  }
+
+  .profile-click {
+    display: inline-block;
+    margin-top: 10px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .lobby-section {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .middle-block {
+    margin: 15px 0;
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+  .lobby-table td a.draft-btn {
+    padding: 5px 25px;
+    display: inline-block;
+  }
+  .left-block {
+    width: 220px;
+
+    .sports-box {
+      ul {
+        li {
+          padding: 5px 10px;
+        }
+      }
+    }
+  }
+
+  .right-block {
+    width: 220px;
+  }
+
+  .middle-block {
+    width: calc(100% - 460px);
+  }
+
+  .notifications {
+    ul {
+      li {
+        p {
+          span {
+            margin-right: 20px;
+          }
+        }
+      }
+    }
+  }
+
+  ul.user-name.nav.navbar-right {
+    background: transparent;
+    padding: 10px 0;
+    padding-right: 0px;
+  }
+
+  header {
+    .navbar-default {
+      .navbar-nav {
+        > li {
+          > a {
+            font-size: 13px;
+            padding: 20px 8px;
+          }
+        }
+      }
+    }
+  }
+
+  ul.nav.navbar-nav {
+    padding-left: 0;
+  }
+
+  span.user-icon {
+    background: $black-russian;
+  }
+
+  ul.dropdown-menu {
+    li {
+      text-align: center;
+      border-bottom: 1px solid $quartz;
+      padding-bottom: 10px;
+
+      &:last-child {
+        border-bottom: 0;
+      }
+    }
+  }
+
+  .edit-ball {
+    a {
+      padding: 8px 10px 8px 8px;
+      font-size: 11px;
+    }
+  }
+
+  .range-slider {
+    .slider.slider-horizontal {
+      width: 100%;
+    }
+  }
+
+  .reset-btns {
+    .btn-default.active {
+      padding: 6px 5px;
+    }
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1285px) {
+  .lobby-table {
+    td {
+      a.draft-btn {
+        display: inline-block;
+        font-size: 12px;
+        text-align: center;
+        width: 100%;
+      }
+    }
+  }
+}

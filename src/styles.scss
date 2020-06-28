@@ -1,1 +1,323 @@
-/* You can add global styles to this file, and also import other style files */
+@import './app/shared/scss/variables';
+
+.was-validated .form-control:invalid,
+.form-control.is-invalid,
+.was-validated .custom-select:invalid,
+.custom-select.is-invalid {
+  border-color: #f86c6b;
+}
+
+.was-validated .form-control:invalid:focus,
+.form-control.is-invalid:focus,
+.was-validated .custom-select:invalid:focus,
+.custom-select.is-invalid:focus {
+  border-color: #f86c6b;
+  box-shadow: 0 0 0 0.2rem rgba(248, 108, 107, 0.25);
+}
+
+.was-validated .form-control:invalid~.invalid-feedback,
+.was-validated .form-control:invalid~.invalid-tooltip,
+.form-control.is-invalid~.invalid-feedback,
+.form-control.is-invalid~.invalid-tooltip,
+.was-validated .custom-select:invalid~.invalid-feedback,
+.was-validated .custom-select:invalid~.invalid-tooltip,
+.custom-select.is-invalid~.invalid-feedback,
+.custom-select.is-invalid~.invalid-tooltip {
+  display: block;
+}
+
+.was-validated .form-check-input:invalid~.form-check-label,
+.form-check-input.is-invalid~.form-check-label {
+  color: #f86c6b;
+}
+
+.was-validated .custom-control-input:invalid~.custom-control-label,
+.custom-control-input.is-invalid~.custom-control-label {
+  color: #f86c6b;
+}
+
+.was-validated .custom-control-input:invalid~.custom-control-label::before,
+.custom-control-input.is-invalid~.custom-control-label::before {
+  background-color: #fee5e5;
+}
+
+.was-validated .custom-control-input:invalid:checked~.custom-control-label::before,
+.custom-control-input.is-invalid:checked~.custom-control-label::before {
+  background-color: #fa9c9c;
+}
+
+.was-validated .custom-control-input:invalid:focus~.custom-control-label::before,
+.custom-control-input.is-invalid:focus~.custom-control-label::before {
+  box-shadow: 0 0 0 1px #e4e5e6, 0 0 0 0.2rem rgba(248, 108, 107, 0.25);
+}
+
+.was-validated .custom-file-input:invalid~.custom-file-label,
+.custom-file-input.is-invalid~.custom-file-label {
+  border-color: #f86c6b;
+}
+
+.was-validated .custom-file-input:invalid~.custom-file-label::after,
+.custom-file-input.is-invalid~.custom-file-label::after {
+  border-color: inherit;
+}
+
+.was-validated .custom-file-input:invalid:focus~.custom-file-label,
+.custom-file-input.is-invalid:focus~.custom-file-label {
+  box-shadow: 0 0 0 0.2rem rgba(248, 108, 107, 0.25);
+}
+
+.invalid-feedback {
+  color: red;
+  font-size: 14px;
+  text-align: left;
+  padding-left: 8px;
+  padding-top: 3px;
+
+  div {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 291px;
+  }
+}
+
+/*Fonts */
+
+@font-face {
+  font-family: 'spartan_mbblack';
+  src: url('assets/fonts/spartanmb-black.woff2') format('woff2'),
+    url('assets/fonts/spartanmb-black.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'spartan_mbbold';
+  src: url('assets/fonts/spartanmb-bold.woff2') format('woff2'),
+    url('assets/fonts/spartanmb-bold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'spartan_mblight';
+  src: url('assets/fonts/spartanmb-light.woff2') format('woff2'),
+    url('assets/fonts/spartanmb-light.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'spartan_mbmedium';
+  src: url('assets/fonts/spartanmb-medium.woff2') format('woff2'),
+    url('assets/fonts/spartanmb-medium.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'spartan_mbregular';
+  src: url('assets/fonts/spartanmb-regular.woff2') format('woff2'),
+    url('assets/fonts/spartanmb-regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'spartan_mbsemibold';
+  src: url('assets/fonts/spartanmb-semibold.woff2') format('woff2'),
+    url('assets/fonts/spartanmb-semibold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html {
+  height: 100%;
+
+  body {
+    background: #ececec;
+    color: $royal-blue;
+    font-family: 'spartan_mbregular';
+    font-size: 16px;
+    min-height: 100%;
+    position: relative;
+  }
+}
+
+.inner-body-page {
+  background-color: $royal-blue;
+}
+
+body input:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+body {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  a,
+  ul,
+  li,
+  span {
+    padding: 0;
+    margin: 0;
+    outline: none;
+    list-style: none;
+    transition: 0.5s;
+  }
+}
+
+a {
+  transition: 0.3s;
+}
+
+.blocks {
+  width: 100%;
+  display: inline-block;
+}
+
+header .navbar-default .navbar-nav>.active>a,
+header .navbar-default .navbar-nav>.active>a:focus,
+header .navbar-default .navbar-nav>.active>a:hover {
+  color: #5ddbda;
+  background: transparent;
+  font-weight: bold;
+}
+
+body a:hover,
+body a:active,
+body a:focus {
+  text-decoration: none;
+  outline: none;
+}
+
+body .row {
+  margin: 0;
+}
+
+/* banner css */
+
+.banner-bg {
+  background: url(assets/images/banner-bg.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  height: 600px;
+}
+
+.fantasy-bg {
+  background: url(assets/images/banner-mob-bg.png);
+  background-size: 100% 100%;
+  height: 260px;
+}
+
+.banner-image {
+  img {
+    width: 100%;
+  }
+
+  display: none;
+}
+
+.banner-logo {
+  img {
+    width: 270px;
+  }
+
+  text-align: center;
+  padding-top: 100px;
+  padding-left: 150px;
+}
+
+.banner-image {
+  padding-top: 30px;
+}
+
+.banner-icons {
+  padding-left: 100px;
+  padding-top: 30px;
+  text-align: center;
+
+  span {
+    img {
+      width: 40px;
+    }
+
+    margin-right: 10px;
+  }
+}
+
+@media (max-width: 767px) {
+
+  body .pad-none {
+    padding: 0;
+  }
+
+  .banner-bg {
+    background: $royal-blue;
+    height: auto;
+  }
+
+  .banner-image {
+    display: block;
+  }
+
+  .fantasy-bg {
+    height: auto;
+    background-size: auto;
+    padding-bottom: 20px;
+  }
+
+  .banner-logo {
+    padding-top: 15px;
+    padding-left: 0;
+  }
+
+  .banner-icons {
+    padding-left: 0;
+    padding-top: 15px;
+  }
+
+  body .fantasy-games .col-md-6 {
+    padding: 0 15px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .banner-logo {
+    padding-left: 35px;
+  }
+}
+
+
+/* Bingo CSS below */
+
+.profile-update {
+  padding: 0 0 15px;
+  display: table;
+  width: 100%;
+}
+
+.pic-profile {
+  width: 70px;
+  display: table;
+  height: 70px;
+  border-radius: 50%;
+  background: $white;
+  overflow: hidden;
+  text-align: center;
+  float: left;
+}
+
+.pic-profile img {
+  max-width: 70px;
+  width: 100%;
+  max-height: 70px;
+  object-fit: contain;
+}

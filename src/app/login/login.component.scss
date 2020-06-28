@@ -1,0 +1,306 @@
+/* login page css */
+@import '../shared/scss/variables';
+
+
+.input-wrap {
+  display: table;
+  width: 100%;
+  margin: 10px 1% 15px;
+  float: left;
+
+  input {
+    border: 0;
+    border-radius: 5px;
+    display: table;
+    line-height: 40px;
+    margin: 0 auto;
+    padding: 0 15px;
+    width: 100%;
+  }
+
+  select {
+    border: 0;
+    border-radius: 5px;
+    display: table;
+    line-height: 40px;
+    margin: 0 auto;
+    padding: 0 15px;
+    width: 100%;
+    height: 40px;
+  }
+}
+
+.login-div {
+  h1 {
+    color: #0bafb5;
+    font-size: 33px;
+    font-family: 'spartan_mbbold';
+    margin-bottom: 20px;
+  }
+
+  background-color: #ececec;
+  border-radius: 10px;
+  margin: 30px auto;
+  width: 50%;
+  padding: 90px 100px 35px 100px;
+  text-align: center;
+
+  form {
+    input {
+      width: 100%;
+      height: 40px;
+      border-radius: 50px;
+      border: 1px solid #a3a3a3;
+      padding-left: 15px;
+      font-size: 15px;
+      background-color: inherit;
+    }
+
+    .input-field {
+      display: table;
+      margin-bottom: 15px;
+      position: relative;
+      width: 100%;
+    }
+
+    i {
+      position: absolute;
+      right: 0;
+      background-color: #0bafb5;
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+      color: #fff;
+      font-size: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      top: 0;
+    }
+  }
+}
+
+.submit-btn button {
+  border-radius: 50px;
+  border: none;
+  background-color: #0b1640;
+  color: #fff;
+  font-size: 20px;
+  font-family: 'spartan_mbregular';
+  padding: 10px 35px;
+  margin-bottom: 30px;
+}
+
+.forgot-pwd a {
+  text-decoration: underline;
+}
+
+.recaptch {
+  display: table;
+  width: 100%;
+  margin-bottom: 20px;
+  padding-left: 30px;
+}
+
+footer {
+  display: table;
+  width: 100%;
+  background-color: #1f1f1f;
+  padding: 50px 0;
+
+  .footer-link a {
+    color: #5a5a5a;
+    font-size: 15px;
+    font-family: 'spartan_mbregular';
+  }
+
+  .social-icons {
+    ul {
+      padding-left: 0;
+      list-style: none;
+
+      li {
+        display: inline-block;
+        float: left;
+        padding-right: 40px;
+      }
+    }
+
+    display: inline-block;
+    width: 100%;
+
+    a {
+      color: #7fd7da;
+      font-size: 30px;
+    }
+  }
+
+  .copyright-text p {
+    color: #5a5a5a;
+    font-size: 15px;
+    font-family: 'spartan_mbregular';
+
+    a {
+      color: #5a5a5a;
+      font-size: 15px;
+      font-family: 'spartan_mbregular';
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .container .login-div {
+    width: 60%;
+    padding: 50px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .container .login-div {
+    width: 80%;
+    padding: 30px 40px;
+  }
+
+  footer {
+    padding: 10px;
+
+    .footer-link {
+      margin-bottom: 20px;
+    }
+
+    .social-icons {
+      a {
+        font-size: 20px;
+      }
+
+      ul li {
+        padding-right: 20px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .container .login-div {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .container .login-div {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .submit-btn button {
+    margin-bottom: 15px;
+  }
+}
+
+/*footer align at the bottom*/
+
+article {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.second-section {
+  flex-grow: 1;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+footer {
+  flex-shrink: 0;
+}
+
+/*custom check box css start here*/
+
+.checkbox-text {
+  display: block;
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 12px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin: 25px 0;
+  color: #636363;
+
+  a {
+    color: #636363;
+    text-decoration: underline;
+  }
+
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+}
+
+/* Hide the browser's default checkbox */
+
+/* Create a custom checkbox */
+
+.checkmark {
+  position: absolute;
+  top: -2px;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #3bb54a;
+  border-radius: 50%;
+}
+
+/* When the checkbox is checked, add a blue background */
+
+.checkbox-text input:checked~.checkmark {
+  background-color: #3bb54a;
+  border-radius: 50%;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+
+.checkbox-text {
+  input:checked~.checkmark:after {
+    display: block;
+  }
+
+  .checkmark:after {
+    left: 8px;
+    top: 4px;
+    width: 5px;
+    height: 11px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+}
+
+/* Style the checkmark/indicator */

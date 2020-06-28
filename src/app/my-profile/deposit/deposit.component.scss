@@ -1,0 +1,212 @@
+@import '../../shared/scss/variables';
+@import '../my-profile.component.scss';
+
+.amount-block h4 {
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.payment-block h4 {
+  font-weight: bold;
+  margin: 15px 0;
+}
+
+.amount-block ul li {
+  background: $white;
+  border-radius: 20px;
+  display: inline-block;
+  font-size: 30px;
+  font-weight: bold;
+  height: 120px;
+  line-height: 125px;
+  margin-right: 10px;
+  text-align: center;
+  width: 17.6%;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &.active {
+    background: $monte-carlo;
+    color: $white;
+  }
+
+  &.other-input {
+    line-height: 40px;
+
+    label {
+      font-size: 15px;
+      font-weight: normal;
+    }
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &.other-input input {
+    background: $light-grey;
+    border: 0;
+    box-shadow: none;
+    border-radius: 25px;
+    margin: 0 auto;
+    width: 80%;
+  }
+}
+
+.payment-type {
+  background: $white;
+  border-radius: 15px;
+  padding: 20px;
+  padding-left: 40px;
+
+  h5 {
+    margin-bottom: 15px;
+    margin-top: 15px;
+  }
+}
+
+ul {
+  &.payment_type li {
+    display: inline-block;
+    list-style: none;
+
+    img {
+      margin-right: 10px;
+      width: 130px;
+    }
+  }
+
+  &.card-details {
+    li {
+      input {
+        background: $light-grey;
+        border: 0;
+        box-shadow: none;
+        border-radius: 20px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        width: 100%;
+      }
+
+      label {
+        font-size: 14px;
+        font-weight: normal;
+      }
+
+      display: inline-block;
+      margin-right: 5px;
+      width: 15%;
+
+      &.visa {
+        width: 20%;
+
+        img {
+          width: 100%;
+        }
+      }
+    }
+
+    margin-bottom: 15px;
+  }
+}
+
+.continue-btn {
+  a {
+    background: $green;
+    border-radius: 25px;
+    color: $white;
+    padding: 4px 30px;
+  }
+
+  margin: 20px 0;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .amount-block ul li {
+    height: 100px;
+    font-size: 25px;
+    font-weight: bold;
+    line-height: 112px;
+    width: 28.6%;
+  }
+
+  ul {
+    &.payment_type li img {
+      width: 115px;
+    }
+
+    &.card-details li {
+      font-size: 12px;
+      width: 22%;
+    }
+  }
+
+  .payment-type {
+    padding-left: 20px;
+  }
+
+  ul.card-details {
+    li.visa {
+      margin-top: 10px;
+      width: 70%;
+    }
+
+    &.exp-details li {
+      width: 30%;
+    }
+  }
+
+  .amount-block ul li.other-input {
+    position: relative;
+    top: 5px;
+  }
+}
+
+@media(max-width: 767px) {
+  .amount-block ul li {
+    font-size: 20px;
+    height: 75px;
+    line-height: 78px;
+    width: 28.6%;
+
+    &.other-input {
+      line-height: 24px;
+      position: relative;
+      top: 8px;
+      width: 40%;
+    }
+  }
+
+  ul.payment_type li img {
+    width: 80px;
+  }
+
+  .payment-type {
+    padding-left: 20px;
+  }
+
+  ul.card-details {
+    li {
+      display: inline-block;
+      font-size: 10px;
+      margin-right: 5px;
+      width: 21.9%;
+
+      &.visa {
+        margin-top: 10px;
+        width: 80%;
+      }
+    }
+
+    &.exp-details li {
+      width: 30%;
+    }
+
+    li label {
+      font-size: 11px;
+    }
+  }
+}

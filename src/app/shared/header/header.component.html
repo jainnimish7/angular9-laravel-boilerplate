@@ -1,0 +1,115 @@
+<header>
+  <div class="logo pull-left">
+    <a href="javascript:void(0)" routerLink='/'>
+      <img src="assets/images/header-logo.png">
+    </a>
+  </div>
+  <nav class="navbar navbar-default" *ngIf="authService.isUserAuthenticated">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+          data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><a routerLink='/lobby'>Lobby</a></li>
+          <!-- <li><a routerLink='/my-bestball'>My bestball contests</a></li> -->
+          <li><a href="javascript:void(0)">My bestball contests</a></li>
+          <li><a href="javascript:void(0)">My Zenleagues/zenball</a></li>
+          <li><a href="javascript:void(0)">ZChat</a></li>
+          <li><a [routerLink]="['/my-profile']" [queryParams]="{tab: 3}">Refer a Friend</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right user-name">
+          <li class="hidden-sm">
+            <a href="javascript:void(0)">
+              <span class="user-icon"></span>{{user?.user_name}}<br>
+              <span class="green-color">${{user?.main_balance | roundOffDecimal}}
+                <!-- <span class="plus-sign">+</span> -->
+              </span>
+            </a>
+          </li>
+          <li class="dropdown">
+            <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button"
+              aria-haspopup="true" aria-expanded="false"> <i class="fa fa-ellipsis-v" aria-hidden="true"></i></a>
+            <ul class="dropdown-menu">
+              <li class="hidden-lg hidden-xs">
+                <a href="javascript:void(0)">
+                  <span class="user-icon"></span>{{user?.user_name}}
+                  <br>
+                  <span class="green-color">${{user?.main_balance | roundOffDecimal}}</span>
+                </a>
+              </li>
+              <li><a href="javascript:void(0)" routerLink="/my-profile">My Profile</a></li>
+              <li><a href="javascript:void(0)" (click)="logout()">Logout</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="login-btns pull-right" *ngIf="!authService.isUserAuthenticated">
+    <ul>
+      <li>
+        <a routerLink='/login'>Sign in</a>
+      </li>
+      <li>
+        <a routerLink='/signup'>Signup</a>
+      </li>
+    </ul>
+  </div>
+</header>
+
+<!-- <header>
+  <nav>
+    <div class="logo">
+      <a href="javascript:void(0)" (click)="navigateToHome()"><img src="assets/images/home-logo.png"></a>
+    </div>
+    <div class="with-login-menu" *ngIf="authService.isUserAuthenticated">
+      <div class="nav-mobile">
+        <a id="nav-toggle" href="javascript:void(0)" (mouseover)="onMouseOver()"><span></span></a>
+      </div>
+      <ul class="responsive-menu">
+        <li id="home-button"><a routerLink="/">Home</a></li>
+        <li id="lobby"><a href="javascript:void(0)" (click)="setActiveClass()" routerLink="/lobby">Live Action Lobby</a>
+        </li>
+        <li id="my-cards" class="dropdown" (click)="setActiveClass()">
+          <button type="button" class="dropdown-toggle" data-toggle="dropdown">MY CARDS
+          <span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <li><a href="javascript:void(0)" routerLink="/my-cards">Shutout</a></li>
+            <li><a href="javascript:void(0)" routerLink="/my-games" >Live Action</a></li>
+          </ul>
+        </li>
+      </ul>
+      <div class="dropdown user-option">
+        <li class="balance-header"><a href="javascript:void(0)" *ngIf="user && !mobileView">Balance
+            ${{user?.total_balance | roundOffDecimal}}</a></li>
+        <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <img [src]="user && user?.image ? user.image : 'assets/images/user-icon.png'">
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dLabel">
+          <li>
+            <a href="javascript:void(0)" routerLink="/my-account">My Account
+              <span *ngIf="mobileView">(${{user?.total_balance | roundOffDecimal}})</span>
+            </a>
+          </li>
+          <li><a href="javascript:void(0)" routerLink="/my-profile">My Profile</a></li>
+          <li><a href="javascript:void(0)" (click)="logout()">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="without-login-menu" *ngIf="!authService.isUserAuthenticated">
+      <a routerLink='/login'><button>Login</button></a>
+      <a routerLink='/signup'><button>Signup</button></a>
+    </div>
+  </nav>
+</header> -->
+
+<app-loader></app-loader>

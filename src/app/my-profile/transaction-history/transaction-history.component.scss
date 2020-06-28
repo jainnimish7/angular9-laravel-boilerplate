@@ -1,0 +1,205 @@
+@import '../../shared/scss/variables';
+@import '../my-profile.component.scss';
+
+.transaction-block h4 {
+  font-weight: bold;
+  margin: 5px 0 10px 0;
+}
+
+.styled-select {
+  box-sizing: border-box;
+  border-radius: 3px;
+  overflow: hidden;
+  position: relative;
+  width: 150px;
+
+  select {
+    width: 150px;
+  }
+}
+
+@-moz-document url-prefix() {
+  .styled-select select {
+    width: 110%;
+  }
+}
+
+_:-o-prefocus,
+.selector {
+  .styled-select {
+    background: none;
+  }
+}
+
+select:focus {
+  outline: none;
+}
+
+.styled-select {
+  select {
+    -webkit-appearance: none;
+    background: $white;
+    border: none;
+    border-radius: 25px;
+    font-size: 14px;
+    height: 34px;
+    padding: 5px 0 5px 12px;
+  }
+
+  .fa-sort-desc {
+    color: $light-grey;
+    font-size: 24px;
+    position: absolute;
+    right: 15px;
+    top: -1px;
+  }
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+ul.filter li {
+  display: inline-block;
+  padding-right: 15px;
+  vertical-align: top;
+}
+
+ul.filter li.reset-btn {
+  background: #fff;
+  border: 0;
+  border-radius: 25px;
+  height: 34px;
+  text-align: center;
+}
+
+ul.filter li.reset-btn button {
+  border: 0;
+  background: none;
+  line-height: 34px;
+}
+
+ul.filter li.reset-btn button i {
+  color: #333;
+  margin-right: 5px;
+  padding-left: 5px;
+}
+
+li.date-input {
+  position: relative;
+
+  input {
+    background: $white;
+    border: 0;
+    border-radius: 25px;
+    font-size: 14px;
+    height: 34px;
+    padding-left: 10px;
+  }
+
+  i {
+    color: $light-grey;
+    font-size: 20px;
+    position: absolute;
+    right: 30px;
+    top: 7px;
+  }
+}
+
+.transaction-block p {
+  font-size: 14px;
+  margin: 10px 0;
+}
+
+.transaction-table {
+  background: $white;
+  border-radius: 15px;
+  min-height: 300px;
+  padding: 11px 0;
+
+  thead th {
+    background: $light-grey;
+    font-size: 14px;
+  }
+
+  td {
+    font-size: 14px;
+  }
+}
+
+.pagination-block {
+  // padding-top: 180px;
+
+  ul li {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: bold;
+    list-style-type: none;
+    padding: 0 10px;
+
+    &.active {
+      background: $light-grey;
+      border-radius: 100%;
+      line-height: 24px;
+      padding: 5px 15px;
+    }
+  }
+
+  i {
+    color: #aeadad;
+    font-size: 20px;
+  }
+}
+
+li {
+  &.left-sort i {
+    position: relative;
+    top: 3px;
+    transform: rotate(90deg);
+  }
+
+  &.right-sort i {
+    position: relative;
+    top: 4px;
+    transform: rotate(270deg);
+  }
+}
+
+.pagination-block ul li {
+  &.left-sort {
+    padding: 0;
+  }
+
+  &.right-sort {
+    padding: 0;
+    padding-right: 15px;
+  }
+}
+
+@media (min-width: 767px) and (max-width: 1024px) {
+  .styled-select {
+    width: 115px;
+
+    select {
+      width: 115px;
+    }
+  }
+
+  ul.filter li {
+    padding-right: 5px;
+  }
+}
+
+@media (max-width: 767px) {
+  .styled-select {
+    width: 100px;
+
+    select {
+      width: 100px;
+    }
+  }
+
+  ul.filter li {
+    padding-right: 0;
+  }
+}

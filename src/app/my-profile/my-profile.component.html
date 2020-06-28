@@ -1,0 +1,277 @@
+<section class="profile-section">
+  <div class="profile-left">
+    <ul class="responsive-menu">
+      <li class="active" (click)="changeSection('account')">
+        <a href="javascript:void(0)">Account Information</a>
+      </li>
+      <li (click)="changeSection('deposit')"><a href="javascript:void(0)">Deposit</a></li>
+      <li (click)="changeSection('withdrawal')"><a href="javascript:void(0)">Withdrawal</a></li>
+      <li id="refer-friend" (click)="changeSection('referral')"><a href="javascript:void(0)">Refer a Friend</a></li>
+      <li (click)="changeSection('transaction-history')"><a href="javascript:void(0)">Transaction History</a></li>
+      <li><a href="javascript:void(0)">Document Center</a></li>
+      <li><a href="javascript:void(0)">Uploads</a></li>
+    </ul>
+  </div>
+  <div class="profile-middle" *ngIf="currentSection == 'account'">
+    <div class="profile-pic">
+      <div class="user-image pull-left">
+        <img [src]="userProfile && userProfile.image ? userProfile.image : 'assets/images/user-image.png'">
+        <input id="file-input" type="file" accept="image/png, image/jpeg" style="display: none;"
+          (change)="fileChange($event)" />
+        <label for="file-input" class="icon-label">
+          <div class="profile-plus">+</div>
+        </label>
+      </div>
+      <div class="name">
+        <p>{{userProfile?.full_name}}</p>
+        <p class="red-color">Not Verified</p>
+      </div>
+      <div class="profile-click pull-right">
+        <a href="javascript:void(0)">Click to become verified</a>
+      </div>
+    </div>
+    <div class="account-details">
+      <h4>Account Details</h4>
+      <div class="detail-block">
+        <div class="info">
+          <p class="pull-left">
+            <span>Balance: </span><span class="blue-color">{{+userProfile?.main_balance | roundOffDecimal}}</span>
+          </p>
+          <p class="pull-right"><a href="javascript:void(0)" class="deposit-btn">Deposit Now</a></p>
+        </div>
+        <div class="info">
+          <p class="pull-left"><span>Zencoin: </span><span class="blue-color">0.00</span></p>
+          <p class="pull-right"><a href="javascript:void(0)" class="zencoin-btn">My Zencoins</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="personal-info">
+      <h4 class="pull-left">Personal-information</h4>
+      <div class="profile-click pull-right">
+        <div class="edit-btn" *ngIf="selectedOption != 'editProfile'">
+          <a href="javascript:void(0)" (click)="selectedOption = 'editProfile'">Edit Profile</a>
+        </div>
+        <div class="save-btns" *ngIf="selectedOption == 'editProfile'">
+          <a href="javascript:void(0)" (click)="cancelUpdate()">Cancel</a>
+          <a href="javascript:void(0)" (click)="updateProfile()">Save Changes</a>
+        </div>
+      </div>
+      <div class="detail-block" *ngIf="selectedOption == 'showProfile' || selectedOption == 'changePassword'">
+        <div class="info">
+          <div class="col-md-4 col-sm-4">
+            <p>Name</p>
+          </div>
+          <div class="col-md-8 col-sm-8">
+            <p>{{userProfile?.full_name}}</p>
+          </div>
+        </div>
+        <div class="info">
+          <div class="col-md-4 col-sm-4">
+            <p>Email</p>
+          </div>
+          <div class="col-md-8 col-sm-8">
+            <p>{{userProfile?.email}}</p>
+          </div>
+        </div>
+        <div class="info">
+          <div class="col-md-4 col-sm-4">
+            <p>Username</p>
+          </div>
+          <div class="col-md-8 col-sm-8">
+            <p>{{userProfile?.user_name}}</p>
+          </div>
+        </div>
+        <div class="info">
+          <div class="col-md-4 col-sm-4">
+            <p>Date of Birth</p>
+          </div>
+          <div class="col-md-8 col-sm-8">
+            <p>{{userProfile?.dob}}</p>
+          </div>
+        </div>
+        <div class="info">
+          <div class="col-md-4 col-sm-4">
+            <p>Address</p>
+          </div>
+          <div class="col-md-8 col-sm-8">
+            <p>{{userProfile?.master_state?.name}}, {{userProfile?.master_country?.country_name}}</p>
+          </div>
+        </div>
+        <div class="info">
+          <div class="col-md-4 col-sm-4">
+            <p>Password</p>
+          </div>
+          <div class="col-md-8 col-sm-8">
+            <div *ngIf="selectedOption == 'changePassword'">
+              <form [formGroup]="changePasswordForm" class="form50 password-form">
+                <div class="form-group">
+                  <p>Current Password<span class="error-star">*</span></p>
+                  <input type="password" class="form-control custom-input" formControlName="currentPassword"
+                    [ngClass]="{ 'is-invalid': changePasswordSubmitted && changePasswordFields.currentPassword?.errors }"
+                    maxlength="20">
+                  <div *ngIf="changePasswordSubmitted && changePasswordFields.currentPassword.errors"
+                    class="invalid-feedback">
+                    <div *ngIf="changePasswordFields.currentPassword.errors.required">Current password is
+                      required</div>
+                    <div *ngIf="changePasswordFields.currentPassword.errors.minlength">Password must have at
+                      least 6
+                      characters
+                    </div>
+                    <div *ngIf="changePasswordFields.currentPassword.errors.maxlength">Password must have
+                      less than 20
+                      characters
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <p>New Password<span class="error-star">*</span></p>
+                  <input type="password" class="form-control custom-input" formControlName="password"
+                    [ngClass]="{ 'is-invalid': changePasswordSubmitted && changePasswordFields.password?.errors }"
+                    maxlength="20">
+                  <div *ngIf="changePasswordSubmitted && changePasswordFields.password?.errors"
+                    class="invalid-feedback">
+                    <div *ngIf="changePasswordFields.password.errors.required">New password is required
+                    </div>
+                    <div *ngIf="changePasswordFields.password.errors.minlength">Password must have at least
+                      6 characters
+                    </div>
+                    <div *ngIf="changePasswordFields.password.errors.maxlength">Password must have less than
+                      20 characters
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <p>Confirm Password<span class="error-star">*</span></p>
+                  <input type="password" class="form-control custom-input" formControlName="confirmPassword"
+                    [ngClass]="{ 'is-invalid': changePasswordSubmitted && changePasswordFields.confirmPassword?.errors }"
+                    maxlength="20">
+                  <div *ngIf="changePasswordSubmitted && changePasswordFields.confirmPassword?.errors"
+                    class="invalid-feedback">
+                    <div *ngIf="changePasswordFields.confirmPassword.errors.required">Enter the password
+                      again for
+                      confirmation</div>
+                    <div *ngIf="changePasswordFields.confirmPassword.errors.minlength">Password must have at
+                      least 6
+                      characters
+                    </div>
+                    <div *ngIf="changePasswordFields.confirmPassword.errors.maxlength">Password must have
+                      less than 20
+                      characters
+                    </div>
+                  </div>
+                  <div class="invalid-feedback"
+                    *ngIf="changePasswordSubmitted && !errorExist('password', 'changePasswordFields') && !errorExist('confirmPassword', 'changePasswordFields') && changePasswordForm.errors?.MatchPassword">
+                    Passwords do not match</div>
+                </div>
+                <div class="profile-click">
+                  <a href="javascript:void(0)" (click)="changePassword()">Change Password</a>
+                  <a class="cancel-btn" href="javascript:void(0)" (click)="cancelUpdate()">Cancel</a>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="profile-click col-md-8 col-sm-8" *ngIf="selectedOption != 'changePassword'">
+            <p class="pass-btn"><a href="javascript:void(0)" (click)="selectedOption = 'changePassword'">Change
+                Password</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="detail-block" *ngIf="selectedOption == 'editProfile'">
+        <form *ngIf="!loading" [formGroup]="updateProfileForm" class="password-form">
+          <div class="info">
+            <div class="col-md-4 col-sm-4">
+              <p>First Name</p>
+            </div>
+            <div class="col-md-8 col-sm-8">
+              <input type="text" class="form-control custom-input" formControlName="first_name" maxlength="50"
+                (change)="trimSpace('first_name')" (keypress)="validateName($event)">
+              <div *ngIf="updateProfileSubmitted && updateProfileFields.first_name.errors" class="invalid-feedback">
+                <div *ngIf="updateProfileFields.first_name.errors.required">First name is required</div>
+                <div *ngIf="updateProfileFields.first_name.errors.minlength">First name must have at least 2 characters
+                </div>
+                <div *ngIf="updateProfileFields.first_name.errors.maxlength">First name must have less than 50
+                  characters</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="info">
+            <div class="col-md-4 col-sm-4">
+              <p>Last Name</p>
+            </div>
+            <div class="col-md-8 col-sm-8">
+              <input type="text" class="form-control custom-input" formControlName="last_name" maxlength="50"
+                (change)="trimSpace('last_name')" (keypress)="validateName($event)">
+              <div *ngIf="updateProfileSubmitted && updateProfileFields.last_name.errors" class="invalid-feedback">
+                <div *ngIf="updateProfileFields.last_name.errors.required">Last name is required</div>
+                <div *ngIf="updateProfileFields.last_name.errors.minlength">Last name must have at least 2 characters
+                </div>
+                <div *ngIf="updateProfileFields.last_name.errors.maxlength">Last name must have less than 50 characters
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="info">
+            <div class="col-md-4 col-sm-4">
+              <p>Date of Birth</p>
+            </div>
+            <div class="col-md-8 col-sm-8">
+              <div id="datepicker" class="input-group date" data-date-format="dd-mm-yyyy">
+                <ng-container>
+                  <input type="text" class="form-control date-input custom-input cursor-pointer" #dp="bsDatepicker"
+                    formControlName="dob" bsDatepicker [maxDate]="maxDate" readonly
+                    [bsConfig]="{ dateInputFormat: 'MM/DD/YYYY', containerClass: 'theme-default', showWeekNumbers:false, adaptivePosition: true }">
+                  <span class="input-group-addon" (click)="dp.toggle()" [attr.aria-expanded]="dp.isOpen"><i
+                      class="glyphicon glyphicon-calendar"></i>
+                  </span>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+          <div class="info">
+            <div class="col-md-4 col-sm-4">
+              <p>Country</p>
+            </div>
+            <div class="col-md-8 col-sm-8">
+              <div class="styled-select">
+                <select class="form-control custom-input country-select" formControlName="master_country"
+                  (change)="changeCountry()">
+                  <option *ngFor="let country of countryList" [ngValue]="country">{{country.country_name}}
+                  </option>
+                </select>
+                <span _ngcontent-wpy-c8="" class="fa fa-sort-desc"></span>
+              </div>
+              <div *ngIf="updateProfileSubmitted && updateProfileFields.master_country.errors" class="invalid-feedback">
+                <div *ngIf="updateProfileFields.master_country.errors.required">Country is required
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="info">
+            <div class="col-md-4 col-sm-4">
+              <p>Address</p>
+            </div>
+            <div class="col-md-8 col-sm-8">
+              <div class="styled-select">
+                <select class="form-control custom-input country-select" formControlName="master_state_id">
+                  <option [ngValue]="null">Select State</option>
+                  <option *ngFor="let state of stateList" [value]="state.master_state_id">
+                    {{state.name}}
+                  </option>
+                </select>
+                <span _ngcontent-wpy-c8="" class="fa fa-sort-desc"></span>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <app-deposit *ngIf="currentSection == 'deposit'"></app-deposit>
+  <app-referral [userUniqueId]="userProfile?.user_unique_id" *ngIf="currentSection == 'referral'"></app-referral>
+  <app-withdrawal [userProfile]="userProfile" *ngIf="currentSection == 'withdrawal'"></app-withdrawal>
+  <app-transaction-history *ngIf="currentSection == 'transaction-history'"></app-transaction-history>
+</section>
+
+<app-loader></app-loader>

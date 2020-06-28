@@ -1,0 +1,114 @@
+<div class="profile-middle">
+  <div class="withdrawal-block">
+    <div class="col-md-6 col-sm-12">
+      <form *ngIf="withdrawalForm" [formGroup]="withdrawalForm" (ngSubmit)="onSubmit()">
+        <h4>How much do you want to withdraw?</h4>
+        <input type="text" formControlName="amount" class="form-control" placeholder="$"
+          [ngClass]="{ 'is-invalid': submitted && f.amount.errors }">
+        <div *ngIf="submitted && f['amount'].errors" class="invalid-feedback">
+          <div *ngIf="f['amount'].errors.required">Amount is required</div>
+          <div *ngIf="!f['amount'].errors.min && f['amount'].errors.max">Withdrawal amount must be less than
+            {{+userProfile?.winning_balance}}</div>
+          <div *ngIf="f['amount'].errors.min">Withdrawal amount must be greater than 10</div>
+          <div *ngIf="f['amount'].errors.pattern">Only Numeric value allowed</div>
+        </div>
+        <div>
+          <select formControlName="withdrawalBy">
+            <option [ngValue]="null">Select Withdrawal By</option>
+            <option *ngFor="let option of withdrawOptions" [ngValue]="option">
+              {{option}}
+            </option>
+          </select>
+          <div *ngIf="submitted && f['withdrawalBy'].errors" class="invalid-feedback">
+            <div *ngIf="f['withdrawalBy'].errors.required">Please select option</div>
+          </div>
+        </div>
+        <div *ngIf="f['withdrawalBy'].value == 'EMAIL'">
+          <input type="text" class="form-control" placeholder="Email" maxlength="50" formControlName="email"
+            [ngClass]="{ 'is-invalid': submitted && f.email.errors }" (change)="trimSpace('email')">
+          <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+            <div *ngIf="f['email'].errors.required">Email is required</div>
+            <div *ngIf="f['email'].errors.pattern">Email address must be valid</div>
+          </div>
+        </div>
+        <div *ngIf="f['withdrawalBy'].value == 'PHONE'">
+          <input type="text" class="form-control" placeholder="Phone Number" maxlength="15" formControlName="phone"
+            [ngClass]="{ 'is-invalid': submitted && f.phone.errors }" (change)="trimSpace('phone')">
+          <div *ngIf="submitted && f['phone'].errors" class="invalid-feedback">
+            <div *ngIf="f['phone'].errors.required">Phone Number is required</div>
+            <div *ngIf="f['phone'].errors.pattern">Must be a valid phone number</div>
+          </div>
+        </div>
+        <p>We’ll show you how you’ll be receiving your fund before the withdraw is submitted </p>
+        <div class="continue-btn">
+          <button type="submit">Continue</button>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-6 col-sm-12 text-right withdrawal-amount">
+      <h4>Available to Withdraw</h4>
+      <h1 class="green-color">${{+userProfile?.winning_balance | roundOffDecimal}}</h1>
+    </div>
+  </div>
+  <div class="verify-block">
+    <p>We will have to verify your age and location before Cash out process. Please <a href="javascript:void(0)">click
+        here</a> to verify. </p>
+  </div>
+  <div class="withdraw-faq">
+    <h4>Withdraw FAQs</h4>
+    <div id="accordion" class="panel-group">
+      <div class="panel">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a href="#panelBodyOne" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion">What is
+              your Withdrawal Policy?</a>
+          </h4>
+        </div>
+        <div id="panelBodyOne" class="panel-collapse collapse">
+          <div class="panel-body">
+            <p>Lorem ipsum</p>
+          </div>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a href="#panelBodyTwo" class="accordion-toggle collapsed" data-toggle="collapse"
+              data-parent="#accordion">What if my card expires or I got a new card?</a>
+          </h4>
+        </div>
+        <div id="panelBodyTwo" class="panel-collapse collapse">
+          <div class="panel-body">
+            <p>Lorem ipsum</p>
+          </div>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a href="#panelBodyThree" class="accordion-toggle collapsed" data-toggle="collapse"
+              data-parent="#accordion">What if I no longer have access to that card?</a>
+          </h4>
+        </div>
+        <div id="panelBodyThree" class="panel-collapse collapse">
+          <div class="panel-body">
+            <p>Lorem ipsum</p>
+          </div>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a href="#panelBodyfour" class="accordion-toggle collapsed" data-toggle="collapse"
+              data-parent="#accordion">I have a Non-Reloaded gift card, can that be refunded?</a>
+          </h4>
+        </div>
+        <div id="panelBodyfour" class="panel-collapse collapse">
+          <div class="panel-body">
+            <p>Lorem ipsum</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

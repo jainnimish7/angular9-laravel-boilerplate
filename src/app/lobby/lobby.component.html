@@ -1,0 +1,132 @@
+<section class="lobby-section">
+  <div class="left-block">
+    <div class="create-league">
+      <!-- <a routerLink='/create-contest'>Create Contest</a> -->
+      <a href="javascript:void(0)">Create Contest</a>
+    </div>
+    <div class="edit-ball">
+      <a href="javascript:void(0)">Edit my Best Ball Pre-Rankings</a>
+    </div>
+    <div class="search-box">
+      <label>Search</label>
+      <input type="text" class="form-control" [(ngModel)]="params['keyword']" name="search" placeholder="Search">
+      <i class="fa fa-search"></i>
+    </div>
+    <div class="sports-box">
+      <label>Sports</label>
+      <ul>
+        <li [ngClass]="params.selectedLeague == league.league_id ? 'active' : ''"
+          (click)="searchByLeague(league.league_id);" *ngFor="let league of leagues">
+          <span><img src="assets/images/{{league.league_abbr}}-icon.png"></span>
+          {{league.league_abbr}}
+        </li>
+      </ul>
+      <label>Game Styles</label>
+      <ul>
+        <li [ngClass]="params.selectedGameStyle == gameStyle.abbr ? 'active' : ''"
+          (click)="searchByGameStyle(gameStyle.abbr);" *ngFor="let gameStyle of gameStyles">
+          {{gameStyle.name}}
+        </li>
+      </ul>
+      <label>Draft</label>
+      <ul>
+        <li [ngClass]="params.selectedDraft == 30 ? 'active' : ''" (click)="params.selectedDraft=30">
+          Fast (30 secs)
+        </li>
+        <li [ngClass]="params.selectedDraft == 60 ? 'active' : ''" (click)="params.selectedDraft=60">
+          Regular (60 secs)
+        </li>
+        <li [ngClass]="params.selectedDraft == 28800 ? 'active' : ''" (click)="params.selectedDraft=28800">
+          Slow (8 hrs)
+        </li>
+      </ul>
+      <div class="row">
+        <label class="pull-left">Fees</label>
+        <!-- <label class="pull-right range">$0.00</label> -->
+      </div>
+      <!-- <div class="range-slider">
+        <mv-slider [(value)]="value" [selection]="selection" [min]="minFee" [max]="maxFee" [enabled]="enabled"
+          [range]="true" (slideStop)="changeEntryFee($event)"></mv-slider>
+        <p>Fee: ${{params.minFee}}-${{params.maxFee}}</p>
+      </div> -->
+    </div>
+
+    <div class="reset-btns">
+      <a class="btn btn-default active" href="javascript:void(0)" (click)="searchFilter('');" role="button">Apply
+        Filter</a>
+      <a class="btn btn-default reset-btn" href="javascript:void(0)" (click)="searchFilter('reset');"
+        role="button">Reset</a>
+    </div>
+  </div>
+  <div class="middle-block">
+    <div class="draft-block">
+      <h3>DRAFT DAY. EVERY DAY.</h3>
+      <p> Join a league and start drafting in minutes!</p>
+    </div>
+    <div class="lobby-table table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Sports</th>
+            <th>Contest</th>
+            <th>Style</th>
+            <th>Entry Fee</th>
+            <th>Total Prizes</th>
+            <th>Live</th>
+            <th>Playoff Starts</th>
+            <th>Entries</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngIf="contestList && !(contestList.length>0)">
+            <td class="text-center" colspan="9">No Contest Found</td>
+          </tr>
+          <tr *ngFor="let contest of contestList">
+            <td><img
+                src="assets/images/{{contest.season.league.league_abbr ? contest.season.league.league_abbr : 'NFL'}}-icon.png">
+            </td>
+            <td>{{ contest.contest_name }}</td>
+            <td>Live Snake Draft</td>
+            <td>${{ contest.entry_fees }}</td>
+            <td>${{ contest.prize_pool }}</td>
+            <td>{{ formatDate(contest.start_date) | date: dateFormatString }}</td>
+            <td>{{ formatDate(contest.playoff_date) | date: dateFormatString }}</td>
+            <td>{{ contest.total_user_joined+"/"+contest.size }}</td>
+            <td><a href="javascript:void(0)" class="draft-btn" *ngIf="contest.total_user_joined !== contest.size"
+                (click)="openConfirmationModal(contest)">Join Now</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- Confirmation modal -->
+<div class="modal fade bs-example-modal-lg" id="confirmPurchaseModal" tabindex="-1" role="dialog"
+  aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <a href="javascript:void(0)" class="close-prize" data-dismiss="modal" aria-label="Close">
+        <img src="assets/images/x.png" />
+      </a>
+      <h3>
+        Confirm Join
+      </h3>
+      <div class="modal-body" *ngIf="selectedContestDetail">
+        <h5 class="text-center confirmation-text">Are you sure you want to join
+          <b>{{ selectedContestDetail.contest_name}} - {{selectedContestDetail.contest_uid}}</b>
+          contest? <br>
+          <b>It will deduct your balance with Entry fee of ${{selectedContestDetail.entry_fees}} with remaining balance
+            of
+            ${{remainingBalance}}</b>
+        </h5>
+        <input type="text" placeholder="Team Name" class="form-control" name="" [(ngModel)]="teamName">
+      </div>
+      <div class="modal-footer">
+        <button type="button" data-dismiss="modal">No</button>
+        <button type="submit" data-dismiss="modal" [disabled]="!teamName" (click)="joinContest()">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>

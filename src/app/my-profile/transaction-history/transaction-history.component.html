@@ -1,0 +1,88 @@
+<div class="profile-middle">
+  <div class="transaction-block">
+    <h4>Showing <span>0</span> Transactions</h4>
+    <ul class="filter">
+      <li>
+        <div class="styled-select">
+          <select [(ngModel)]="params['payment_type']" (change)="searchFilter('')" name="paymentType">
+            <option value="-1">Select type</option>
+            <option *ngFor="let type of paymentType | keyvalue" [value]="type.key">
+              {{type.value}}
+            </option>
+          </select>
+          <span class="fa fa-sort-desc"></span>
+        </div>
+      </li>
+      <li>
+        <div class="styled-select">
+          <select [(ngModel)]="params['is_processed']" (change)="searchFilter('')" name="STATUS">
+            <option value="-1">Select Status</option>
+            <option *ngFor="let type of STATUS | keyvalue" [value]="type.key">
+              {{type.value}}
+            </option>
+          </select>
+          <span class="fa fa-sort-desc"></span>
+        </div>
+      </li>
+      <li class="date-input">
+        <div id="datepicker" class="input-group date" data-date-format="dd-mm-yyyy">
+          <input type="text" id="dates" name="dates" class="form-control" placeholder="Select a date range"
+            #dp="bsDaterangepicker" [(ngModel)]="params.dates" [maxDate]="maxDate" bsDaterangepicker readonly
+            autocomplete="off"
+            [bsConfig]="{ rangeInputFormat: 'DD/MM/YYYY', containerClass: 'theme-default', showWeekNumbers:false }"
+            (bsValueChange)="filterByDate($event)">
+          <i class="fa fa-sort" (click)="dp.toggle()" [attr.aria-expanded]="dp.isOpen"></i>
+        </div>
+      </li>
+      <li class="reset-btn">
+        <button (click)="searchFilter('reset');"><i class="fa fa-refresh"></i>
+          Reset Filters</button>
+      </li>
+    </ul>
+    <p>Dropdown and summary dates are displayed in EST.</p>
+  </div>
+  <div class="transaction-table">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Amount</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let transaction of transactionHistoryList">
+            <td data-label="Date">
+              {{formatDateTime(transaction.created_date) | date: sharedService.timeFormat}}</td>
+            <td data-label="Type">{{paymentType[transaction.payment_type]}}</td>
+            <td data-label="Description">{{transaction.description || '-'}}</td>
+            <td data-label="Amount"><i class="fa fa-usd" style="font-size: 12px;"></i>{{transaction.amount}}</td>
+            <td data-label="Status">
+              <i class="fa fa-times-circle" aria-hidden="true" *ngIf="transaction.is_processed==0"></i>
+              <i class="fa fa-check-circle" aria-hidden="true" *ngIf="transaction.is_processed==1"></i>
+              <i class="fa fa-clock-o" aria-hidden="true" *ngIf="transaction.is_processed==2"></i>
+              {{STATUS[transaction.is_processed]}}</td>
+          </tr>
+          <tr *ngIf="transactionHistoryList && transactionHistoryList.length === 0">
+            <td colspan="5" class="text-center">You haven't done any transaction.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div *ngIf="totalTxn > params.per_page" class="pagination-block pull-right">
+      <ul>
+        <li class="left-sort" (click)="nextOrPreviousPage(-1)" *ngIf="params.current_page !== 1"><a
+            href="javascript:void(0)"><i class="fa fa-sort-desc"></i></a></li>
+        <li>Page</li>
+        <li class="active">{{params.current_page}}</li>
+        <li>of</li>
+        <li>{{totalPages}}</li>
+        <li class="right-sort" (click)="nextOrPreviousPage(1)" *ngIf="params.current_page != totalPages"><a
+            href="javascript:void(0)"><i class="fa fa-sort-desc"></i></a></li>
+      </ul>
+    </div>
+  </div>
+</div>

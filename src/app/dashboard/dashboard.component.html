@@ -1,0 +1,50 @@
+<section class="email-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7 col-sm-7">
+        <div class="email-text">
+          <p>Live Fantasy Drafts Daily, Weekly, & Season-Long</p>
+        </div>
+      </div>
+      <div class="col-md-5 col-sm-5 pad-none">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="draft-section">
+  <div class="container">
+    <h2>Next-Level Live Fantasy Drafts</h2>
+    <div class="fantasy-games">
+      <div class="col-md-6 col-sm-6">
+        <div class="game-block">
+          <img src="assets/images/football.png">
+          <h3>Fantasy Football</h3>
+          <p>Draft daily, weekly, or season-long</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-6">
+        <div class="game-block">
+          <img src="assets/images/golf.png">
+          <h3>Fantasy Golf</h3>
+          <p>Draft in minutes and win with your team of golf pros today</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="start-section">
+  <div class="container">
+    <div class="col-md-5 col-sm-5">
+      <h2>How to start</h2>
+      <p>Fantasy FREE games for real cash</p>
+      <a class="join-button" routerLink='/signup' *ngIf="!authService.isUserAuthenticated">Join Now</a>
+    </div>
+    <div class="col-md-7 col-sm-7">
+      <img src="assets/images/start-image.png">
+    </div>
+  </div>
+</section>
+
+<app-loader></app-loader>

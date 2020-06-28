@@ -1,0 +1,230 @@
+@import '../shared/scss/variables';
+
+/**********Dashboard css page**********/
+
+.email-section {
+  padding: 60px 0;
+}
+
+.email-text {
+  p {
+    color: $royal-blue;
+  }
+
+  h2 {
+    font-weight: bold;
+    font-size: 50px;
+    color: $royal-blue;
+  }
+}
+
+.draft-section h2,
+.start-section h2 {
+  font-weight: bold;
+  font-size: 50px;
+  color: $royal-blue;
+}
+
+.email-text p:last-child {
+  font-size: 25px;
+  font-family: spartan_mbsemibold;
+}
+
+form.join-btn {
+  input {
+    &[type=text] {
+      padding: 10px;
+      font-size: 17px;
+      border: 0;
+      float: left;
+      width: 75%;
+      background: $white;
+      border-top-left-radius: 25px;
+      border-bottom-left-radius: 25px;
+      padding-left: 20px;
+      padding-top: 11px;
+    }
+
+    &:focus {
+      box-shadow: none;
+      border: 0;
+    }
+  }
+
+  button {
+    cursor: pointer;
+    background: $spray;
+    border: 0;
+    border-left: none;
+    border-radius: 25px;
+    color: $royal-blue;
+    float: left;
+    font-size: 17px;
+    margin-left: -18px;
+    padding: 10px;
+    width: 25%;
+
+    &:hover {
+      background: $spray;
+    }
+  }
+
+  &::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+}
+
+.join-btn {
+  margin-top: 30px;
+}
+
+.draft-section {
+  text-align: center;
+  background: $white;
+  padding-top: 50px;
+  padding-bottom: 80px;
+
+  p.head-p {
+    font-size: 25px;
+    font-family: spartan_mbsemibold;
+  }
+}
+
+.fantasy-games {
+  width: 100%;
+  display: inline-block;
+
+  .col-md-6 {
+    padding: 0 40px;
+  }
+}
+
+.game-block {
+  box-shadow: 2px 21px 23px 8px rgba(10, 20, 68, 0.4);
+  border-radius: 25px;
+  padding: 50px;
+  height: 420px;
+  margin-top: 50px;
+
+  img {
+    width: 180px;
+    margin-bottom: 30px;
+  }
+
+  h3 {
+    font-weight: bold;
+    font-size: 30px;
+    margin-bottom: 15px;
+  }
+
+  p {
+    font-size: 22px;
+    font-family: spartan_mbsemibold;
+  }
+}
+
+.start-section {
+  background: $spray;
+  display: table;
+  width: 100%;
+
+  p {
+    font-size: 25px;
+    font-family: spartan_mbsemibold;
+  }
+
+  h2 {
+    padding-top: 50px;
+  }
+
+  img {
+    width: 100%;
+    position: relative;
+    top: 45px;
+  }
+}
+
+a.join-button {
+  background: $white;
+  color: $royal-blue;
+  border-radius: 33px;
+  padding: 10px 5px;
+  font-size: 20px;
+  width: 130px;
+  display: inline-block;
+  text-align: center;
+  border: 0;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+  .email-text h2,
+  .draft-section h2,
+  .start-section h2 {
+    font-size: 40px;
+  }
+
+  form.join-btn {
+    button {
+      width: 34%;
+    }
+
+    input[type=text] {
+      width: 70%;
+    }
+  }
+
+  .game-block {
+    padding: 30px;
+  }
+
+  a.join-button {
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 767px) {
+
+  .email-text h2,
+  .draft-section h2,
+  .start-section h2 {
+    font-size: 25px;
+  }
+
+  .email-text p:last-child {
+    font-size: 20px;
+  }
+
+  form.join-btn {
+    input[type=text] {
+      width: 76%;
+    }
+
+    button {
+      width: 28%;
+      line-height: 25px;
+      font-size: 14px;
+    }
+  }
+
+  .draft-section p.head-p {
+    font-size: 20px;
+  }
+
+  .game-block {
+    padding: 15px;
+    height: auto;
+
+    img {
+      width: 130px;
+    }
+  }
+
+  .start-section img {
+    top: 5px;
+  }
+}

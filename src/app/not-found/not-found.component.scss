@@ -1,0 +1,38 @@
+@import '../login/login.component.scss';
+
+.wrapper-404 .signin {
+  min-height: 550px;
+
+  .auth-pop {
+    height: 100px;
+  }
+}
+
+.not-found-container {
+  border-radius: 10px;
+  color: $white;
+  font-size: 21px;
+  margin: 0 auto;
+  max-width: 100%;
+  padding: 25px;
+  text-align: center;
+  width: 100%;
+
+  a {
+    color: $white;
+    font-weight: 600;
+    margin-right: 5px;
+    text-decoration: underline;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .not-found-container {
+    font-size: 18px;
+    padding: 15px 0;
+  }
+
+  .wrapper-404 .signin {
+    min-height: 500px;
+  }
+}

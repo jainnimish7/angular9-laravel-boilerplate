@@ -1,0 +1,179 @@
+<section class="second-section">
+  <div class="container">
+    <div class="login-div">
+      <div>
+        <h1>
+          SIGNUP
+        </h1>
+      </div>
+
+      <div>
+        <form class="auth-form" [formGroup]="signupForm" (ngSubmit)="onSubmit()" *ngIf="signupForm">
+
+          <div class="input-field">
+            <input type="text" (keypress)="validateName($event)" placeholder="First Name" maxlength="50"
+              formControlName="firstName" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"
+              (change)="trimSpace('firstName')">
+            <i class=" fa fa-user"></i>
+            <div *ngIf="submitted && f['firstName'].errors" class="invalid-feedback">
+              <div *ngIf="f['firstName'].errors.required">First name is required</div>
+              <div *ngIf="f['firstName'].errors.minlength">First name must have at least 2 characters
+              </div>
+              <div *ngIf="f['firstName'].errors.maxlength">First name must have less than 50
+                characters</div>
+            </div>
+          </div>
+
+          <div class="input-field">
+            <input type="text" (keypress)="validateName($event)" placeholder="Last Name" maxlength="50"
+              formControlName="lastName" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }"
+              (change)="trimSpace('lastName')">
+            <i class=" fa fa-user"></i>
+            <div *ngIf="submitted && f['lastName'].errors" class="invalid-feedback">
+              <div *ngIf="f['lastName'].errors.required">Last name is required</div>
+              <div *ngIf="f['lastName'].errors.minlength">Last name must have at least 2 characters
+              </div>
+              <div *ngIf="f['lastName'].errors.maxlength">Last name must have less than 50 characters
+              </div>
+            </div>
+          </div>
+
+          <div class="input-field">
+            <input type="text" placeholder="Username" formControlName="username" maxlength="20"
+              [ngClass]="{ 'is-invalid': submitted && f.username.errors }" (change)="trimSpace('username');"
+              (keypress)="validUsername($event)">
+            <i class=" fa fa-user"></i>
+            <div *ngIf="submitted && f['username'].errors" class="invalid-feedback">
+              <div *ngIf="f['username'].errors.required">Username is required</div>
+              <div *ngIf="f['username'].errors.minlength">Username must have at least 3 characters
+              </div>
+              <div *ngIf="f['username'].errors.maxlength">Username must have less than 20 characters
+              </div>
+              <div title="Must begin with a letter & only contain alphanumeric characters or _(underscore)"
+                *ngIf="!errorExist('username') && f['username'].errors.invalid">
+                Must begin with a letter & only contain alphanumeric characters or _(underscore)
+              </div>
+            </div>
+            <div class="invalid-feedback" *ngIf="submitted && !errorExist('username') && invalidUsername != ''">
+              {{invalidUsername}}</div>
+          </div>
+
+          <div class="input-field">
+            <input type="text" placeholder="Email" maxlength="50" formControlName="email"
+              [ngClass]="{ 'is-invalid': submitted && f.email.errors }" (change)="trimSpace('email')">
+            <i class="fa fa-envelope"></i>
+            <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+              <div *ngIf="f['email'].errors.required">Email is required</div>
+              <div *ngIf="f['email'].errors.pattern">Email address must be valid</div>
+            </div>
+          </div>
+
+          <div class="input-field">
+            <input type="password" placeholder="Password" formControlName="password" maxlength="20"
+              [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+            <i class=" fa fa-lock"></i>
+
+            <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+              <div *ngIf="f['password'].errors.required">Password is required</div>
+              <div *ngIf="f['password'].errors.minlength">Password must have at least 6 characters</div>
+              <div *ngIf="f['password'].errors.maxlength">Password must have less than 20 characters</div>
+            </div>
+          </div>
+
+          <div class="input-field">
+            <input type="password" placeholder="Confirm Password" formControlName="confirmPassword" maxlength="20"
+              [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" />
+            <i class="fa fa-lock"></i>
+            <div *ngIf="submitted && f['confirmPassword'].errors" class="invalid-feedback">
+              <div *ngIf="f['confirmPassword'].errors.required">Enter the password again for
+                confirmation</div>
+              <div title="Confirm Password must have at least 6
+              characters" *ngIf="f['confirmPassword'].errors.minlength">Confirm Password must have at least 6
+                characters
+              </div>
+              <div *ngIf="f['confirmPassword'].errors.maxlength">Confirm Password must have less than
+                20 characters
+              </div>
+            </div>
+            <div class="invalid-feedback"
+              *ngIf="submitted && !errorExist('password') && !errorExist('confirmPassword') && signupForm.errors?.MatchPassword">
+              Passwords do not match
+            </div>
+          </div>
+
+          <div class="input-field">
+            <div id="datepicker" data-date-format="dd-mm-yyyy">
+              <input type="text" class="cursor-pointer" #dp="bsDatepicker" formControlName="dob" bsDatepicker
+                [maxDate]="maxDate" readonly [bsConfig]="{ dateInputFormat: 'MM/DD/YYYY', containerClass: 'theme-default',
+                showWeekNumbers:false, adaptivePosition: true }" placeholder="Date of Birth">
+              <span (click)="dp.toggle()" [attr.aria-expanded]="dp.isOpen"><i class="fa fa-calendar"></i>
+              </span>
+            </div>
+            <div *ngIf="submitted && f['dob'].errors" class="invalid-feedback">
+              <div *ngIf="f['dob'].errors.required">Date of birth is required</div>
+            </div>
+          </div>
+
+          <div class="input-field">
+            <select formControlName="country" (change)="changeCountry()">
+              <option [ngValue]="null">Select Country</option>
+              <option *ngFor="let country of countryList" [ngValue]="country">
+                {{country.country_name}}
+              </option>
+            </select>
+            <i class="fa fa-globe"></i>
+            <div *ngIf="submitted && f['country'].errors" class="invalid-feedback">
+              <div *ngIf="f['country'].errors.required">Country is required</div>
+            </div>
+          </div>
+
+          <div class="input-field">
+            <select formControlName="master_state_id">
+              <option [ngValue]="null">Select State</option>
+              <option *ngFor="let state of stateList" [ngValue]="state.master_state_id">
+                {{state.name}}
+              </option>
+            </select>
+            <i class=" fa fa-globe"></i>
+          </div>
+
+          <div class="input-field" *ngIf="!showReferralInput">
+            <p (click)="showReferralInput = true"> Have a Referral Code ?</p>
+          </div>
+
+          <div class="input-field" *ngIf="showReferralInput">
+            <input type="text" placeholder="Referral Code" maxlength="20" formControlName="referralCode"
+              (change)="trimSpace('referralCode')">
+            <i class="fa fa-user-plus"></i>
+          </div>
+
+          <div class="custom-checkbox">
+            <label for="checkbox1" class="checkbox-text">I agree to the UrgentFury
+              <a href="javascript:void(0)" [routerLink]="['/terms-and-conditions']" target="_blank"> terms and
+                conditions</a>
+              and
+              <a href="javascript:void(0)" [routerLink]="['/privacy-policy']" target="_blank"> privacy policy.</a>
+              <input type="checkbox" id="checkbox1" formControlName="agreeTerms">
+              <span class="checkmark"></span>
+            </label>
+          </div>
+
+          <!-- <div class="recaptch">
+            <ngx-recaptcha2 #captchaElem [siteKey]="siteKey" (reset)="handleReset()" (success)="handleSuccess($event)"
+              [useGlobalDomain]="false" [theme]="'light'" formControlName="recaptcha">
+            </ngx-recaptcha2>
+          </div> -->
+
+          <a class="submit-btn" href="javascript:void(0)" [ngClass]="(f.agreeTerms.value) ? '' : 'disabled'">
+            <button [disabled]="!f.agreeTerms.value"> Sign Up</button>
+          </a>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<app-loader></app-loader>

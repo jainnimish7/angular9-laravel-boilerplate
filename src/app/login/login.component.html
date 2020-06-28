@@ -1,0 +1,57 @@
+<section class="second-section">
+  <div class="container">
+    <div class="login-div">
+      <div>
+        <h1>
+          LOGIN
+        </h1>
+      </div>
+
+      <div>
+        <form *ngIf="loginForm" class="auth-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <div class="input-field">
+            <input type="text" placeholder="Username" formControlName="email"
+              [ngClass]="{ 'is-invalid': submitted && f.email.errors }" maxlength="50">
+            <i class=" fa fa-user"></i>
+            <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+              <div *ngIf="f['email'].errors.required">Username is required</div>
+            </div>
+          </div>
+
+          <div class="input-field">
+            <input type="password" placeholder="Password" formControlName="password"
+              [ngClass]="{ 'is-invalid': submitted && f.password.errors }" maxlength="20" />
+            <i class=" fa fa-lock"></i>
+            <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+              <div *ngIf="f['password'].errors.required">Password is required</div>
+              <div *ngIf="f['password'].errors.minlength">Password must have at least 6 characters</div>
+              <div *ngIf="f['password'].errors.maxlength">Password must have less than 20 characters</div>
+            </div>
+          </div>
+
+          <div class="submit-btn">
+            <button type="submit">Login</button>
+          </div>
+
+          <div class="forgot-pwd">
+            <a routerLink='/forgot-password' href="javascript:void(0)" class="forget-pass">Forgot Password?</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- <div class="middle-content signin">
+  <div class="social-login">
+    <a href="javascript:void(0)" (click)="signInWithFB()">
+      <span><img src="assets/images/social-facebook.png"></span>
+    </a>
+    <a href="javascript:void(0)" (click)="signInWithGoogle()">
+      <span><img src="assets/images/social-google.png"></span>
+    </a>
+  </div>
+</div> -->
+
+<app-loader></app-loader>
