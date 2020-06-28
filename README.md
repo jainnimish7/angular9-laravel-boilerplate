@@ -6,8 +6,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ### Clone the repo
 
 ```shell
-git clone https://gitlab.com/grepruby/projects/client/urgent-fury/front-api.git
-cd front-api
+* git clone https://gitlab.com/grepruby/projects/client/urgent-fury/front-api.git
+* cd front-api
 ```
 
 ### Install npm packages
@@ -15,8 +15,8 @@ cd front-api
 Install the `npm` packages described in the `package.json` and verify that it works:
 
 ```shell
-npm install
-npm start
+* npm install
+* npm start
 ```
 
 The `npm start` command builds (compiles TypeScript), and watches for changes to the source files, and runs `server` on port `4200`.
@@ -26,7 +26,7 @@ Shut it down manually with `Ctrl-C`.
 #### Make sure to install angular v9 as @angular/cli by
 
 ```shell
-npm install -g @angular/cli@9.0.0
+* npm install -g @angular/cli@9.0.0
 ```
 
 #### npm scripts
@@ -45,6 +45,19 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+
+## Integrated pages / functionalties in this boilerplate
+
+* Login
+* Signup
+* Forgot password
+* Reset Password
+* Verify Account
+* Home Page
+* Auth Guard
+* Interceptor
+* My-Profile
+* Lobby
 
 ## Build
 
