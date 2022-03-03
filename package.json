@@ -1,5 +1,5 @@
 {
-  "name": "front-api",
+  "name": "angular9-laravel-boilerplate",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -13,21 +13,21 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "~9.0.0",
-    "@angular/common": "~9.0.0",
-    "@angular/compiler": "~9.0.0",
-    "@angular/core": "~9.0.0",
-    "@angular/forms": "~9.0.0",
-    "@angular/platform-browser": "~9.0.0",
-    "@angular/platform-browser-dynamic": "~9.0.0",
-    "@angular/router": "^9.0.7",
-    "luxon": "^1.24.1",
+    "@angular/animations": "~9.0.7",
+    "@angular/common": "~9.0.7",
+    "@angular/compiler": "~9.0.7",
+    "@angular/core": "~9.0.7",
+    "@angular/forms": "~9.0.7",
+    "@angular/platform-browser": "~9.0.7",
+    "@angular/platform-browser-dynamic": "~9.0.7",
+    "@angular/router": "^9.1.13",
+    "luxon": "^1.28.0",
     "ngx-bootstrap": "^5.6.1",
-    "ngx-captcha": "^8.0.1",
+    "ngx-captcha": "^8.0.0",
     "ngx-toastr": "^12.1.0",
-    "rxjs": "~6.5.4",
-    "tslib": "^1.10.0",
-    "zone.js": "~0.10.2"
+    "rxjs": "~6.5.5",
+    "tslib": "^1.14.1",
+    "zone.js": "~0.10.3"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.900.0",
