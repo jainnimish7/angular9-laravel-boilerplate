@@ -5,8 +5,6 @@ return [
   'IS_LOCAL_TIME' => 'true',
   'BACK_YEAR' => '0 month',
   'ENVIRONMENT' => 'local',
-  // 'ROOT_PATH'=>'/var/www/html/UrgentFury/all_config/',
-  // 'IMAGE_PATH'=>'/var/www/html/UrgentFury/uploads/',
   'AD_IMAGE_DIR' => 'advertisement',
   'DEFAULT_TIME_ZONE' => 'UTC',
   'PAYPAL_MODE' => (env('APP_ENV') === 'production') ? 'production' : 'sandbox',

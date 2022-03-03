@@ -501,7 +501,7 @@ class AuthController extends Controller
               }
             }
           } else {
-            $message = 'Your account has been banned. Contact admin@urgentfury.com for more information';
+            $message = 'Your account has been banned. Contact jainnimish7@gmail.com for more information';
 
             $error = array('email' => $message, 'password' => '', 'reason' => $profile_data['status_reason']);
 

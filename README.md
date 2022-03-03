@@ -6,8 +6,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ### Clone the repo
 
 ```shell
-* git clone https://gitlab.com/grepruby/projects/client/urgent-fury/front-api.git
-* cd front-api
+* git clone https://github.com/jainnimish7/angular9-laravel-boilerplate.git
+* cd angular9-laravel-boilerplate
 ```
 
 ### Install npm packages
@@ -57,7 +57,6 @@ Run `ng generate component component-name` to generate a new component. You can 
 * Auth Guard
 * Interceptor
 * My-Profile
-* Lobby
 
 ## Build
 
